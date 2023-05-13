@@ -1,0 +1,12 @@
+type Cat @entity {
+  id: ID!
+  tokenID: BigInt!
+  tokenURI: String!
+  ipfsURI: String!
+  owner: User!
+}
+
+type User @entity {
+  id: ID!
+  cats: [Cat!]! @derivedFrom(field: "owner")
+}
